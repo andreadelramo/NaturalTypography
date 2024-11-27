@@ -47,6 +47,10 @@ body {
     border: transparent;
 }
 
+#drawingCanvas {
+    display: none; 
+}
+
 
 section{
     min-height: 100vh;
@@ -134,6 +138,7 @@ canvas {
   @media (min-width: 768px) {
 
     #drawingCanvas {
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
