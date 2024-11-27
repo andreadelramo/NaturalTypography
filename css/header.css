@@ -22,13 +22,13 @@ nav {
     display: flex;
     align-items: center;
     background-color: var(--background-alternative); 
-    padding: 10px 20px 10px 14px;
+    padding: 10px 16px 10px 12px;
     border-radius: var(--border-radious-default); 
     backdrop-filter: blur(10px);
 }
 
 .logo svg {
-    margin-right: 8px;
+    margin-right: 4px;
 }
 
 .logo-animation {
