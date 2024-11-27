@@ -24,7 +24,8 @@
     left: 10px;
     padding: 5% 9%;
     border-radius: 4px;
-    font-size: clamp(0.8rem, 1vw, 1.4rem);
+    font-size: clamp(1rem, 1.3vw, 1.4rem);
+    line-height: 1.2;
 }
   
   
@@ -52,13 +53,40 @@
         z-index: -10;
       }
 
+      .line-hand{
+        position: absolute;
+        top: 2%;
+        width: 50%;
+        left: 22%;
+        margin: auto;
+        height: auto;
+        z-index: 2;
+        font-family: "Natural";
+        font-size: 20px;
+        animation: slideText 5s linear infinite;
+      }
 
+  @keyframes slideText {
+    0% {
+      startOffset: 0%;
+    }
+    100% {
+      startOffset: 100%;
+    }
+  }
+
+
+  }
+
+
+  textPath {
+    animation: slideText 5s linear infinite;
   }
   
 .text-grid2 {
     text-align: left;
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1;
     padding: 0px 32px ;
 
   }
@@ -72,7 +100,7 @@
     align-items: flex-start;
     font-size: 0.9rem;
     padding: 10px;
-    line-height: 1.5;
+    line-height: 1;
     padding: 32px ;
     gap: 20px;
 }
