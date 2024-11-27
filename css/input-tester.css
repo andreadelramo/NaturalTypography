@@ -162,7 +162,7 @@
 }
 
 .font, .color {
-    padding: 8px 12px;
+    padding: 12px 16px;
 }
 
 
@@ -219,7 +219,7 @@
 
 
 .switch-btn {
-    padding: 8px 16px;
+    padding: 12px 16px;
     font-size: 16px;
     border-radius: var(--border-radious-default);
     background: transparent;

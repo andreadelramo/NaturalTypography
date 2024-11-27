@@ -44,19 +44,9 @@ body {
     z-index: 2000;
     filter: difference;
     overflow-x: hidden;
+    border: transparent;
 }
 
-#drawingCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 3000;
-    background-color: transparent; /* NO QUITAR */
-    overflow-x: hidden;
-}
 
 section{
     min-height: 100vh;
@@ -140,3 +130,19 @@ canvas {
     text-transform: uppercase;
     cursor: pointer;
   }
+
+  @media (min-width: 768px) {
+
+    #drawingCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 3000;
+        background-color: transparent; /* NO QUITAR */
+        overflow-x: hidden;
+        border: transparent;
+    }
+}
