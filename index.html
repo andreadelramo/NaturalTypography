@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternancia de Glifos con JavaScript</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/input-tester.css">
+    <link rel="stylesheet" href="css/description.css">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/glyph-block.css">
+    <link rel="stylesheet" href="css/grid-images.css">
+    <link rel="stylesheet" href="css/text-animation.css">
+</head>
+<body>
+    <canvas id="drawingCanvas"></canvas>
+    <canvas id="noiseCanvas"></canvas>
+
+    <div class="intro">
+        <p class="glifo-text text-intro">Natural</p>
+    </div>
+   
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <svg 
+                    class="logo-animation"
+                    id="lineDrawing"
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 35 34" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.7286 30.9176C21.9707 27.1597 12.0556 4.5 5.55557 11C1.55557 15 11.8939 20.1617 8.39392 24.6617C4.89392 29.1617 -1.60613 23.1617 4.53886 18.9187C10.6839 14.6757 20.6518 17.0935 26.2005 18.9187C35.6184 22.0167 34.7119 12.9407 29.5843 13.3069C20.5257 13.954 23.144 24.1432 19.7005 28.9187C14.3684 36.3132 7.70048 30.6617 13.2005 24.9187C18.7005 19.1757 16.3648 8.85373 16.3648 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="glifo-text">Natural</span>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#tester">Tester</a></li>
+                    <li><a href="#description">Description</a></li>
+                    <li><a href="#glyphs">Glyphs</a></li>
+                    <li><a href="#uses">Uses</a></li>
+                </ul>
+                <span class="section-name glifo-text">Menú</span>
+                <button>Download</button>
+            </div>
+        </nav>
+    </header>
+
+    
+    
+    <div class="content">
+    
+        <!-- BLOQUE: INPUT -->
+
+        <section class="section-input" id="tester">
+            <div class="text-container">
+                <div 
+                    id="styled-text" 
+                    class="random-text glifo-text">
+                </div>
+            </div>
+        
+            <div class="controls">
+                <input 
+                    class="control input"
+                    type="text" 
+                    id="user-input" 
+                    placeholder="Escribe aquí..." 
+                    spellcheck="false">
+                
+                <div class="control-group">
+                    <div class="control color">
+                        <label for="text-color">Color</label>
+                        <div class="input-color" id="color-container">
+                            <input type="color" id="text-color" value="#000000">
+                        </div>
+                    </div>
+                    
+                    <div class="control font">
+                        <label for="font-size">Tamaño</label>
+                        <input type="range" id="font-size" min="50" max="200" value="125">
+                    </div>
+                    
+                    <div class="control custom-switch">
+                        <button id="lowercase-button" class="switch-btn active">aa</button>
+                        <button id="uppercase-button" class="switch-btn">AA</button>
+                    </div>
+                </div>
+            </div>
+            
+        </section>    
+
+        <!-- BLOQUE: DESCRIPTION -->
+
+        <section class="description-section" id="description">
+            <div id="full-width-text">
+
+                <p class="glifo-text sentence-highlight">This is a typeface that recreates the <span class="word-highlight">randomness</span> of real calligraphy.</p>
+                <svg class="svg-description left-svg" width="281" height="386" viewBox="0 0 281 386" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M234.327 8C213.626 68.4676 183.069 124.236 150.925 179.507C143.411 192.427 102.337 246.603 136.965 243.067C150.373 241.698 224.749 226.261 233.611 241.647C240.292 253.243 234.046 281.634 234.327 294.2C235.544 348.518 273.84 306.929 272.986 276.445C272.188 247.938 265.949 212.898 259.742 185.188C259.343 183.407 231.575 203.141 226.453 204.718C181.43 218.579 128.206 184.736 92.5794 161.397C82.1278 154.551 -1.10009 97.4818 8.81926 97.4818C34.5647 97.4818 39.0481 123.273 37.4552 143.288C33.2533 196.087 34.5916 249.065 34.5916 302.012C34.5916 312.144 26.5224 378 44.9722 378C65.0619 378 86.1392 364.328 105.466 359.535" stroke="#DCF971" stroke-width="16" stroke-linecap="round"/>
+                </svg>
+                    
+            
+                <svg class="svg-description right-svg-top" width="225" height="209" viewBox="0 0 225 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28.0614 48.8859C19.684 53.7742 9.5693 71.5608 5.49465 80.4889C-0.785699 94.25 14.455 80.4807 19.2722 77.3999C30.7281 70.0735 106.081 30.7755 99.7999 68.8457C96.6717 87.8047 87.4954 104.589 83.6469 123.26C81.053 135.844 75.9145 144.272 91.8422 141.794C107.614 139.34 130.216 132.538 145.171 141.319C154.511 146.803 151.337 157.769 142.914 162.229C126.184 171.089 103.608 175.674 84.8346 174.585C54.4329 172.822 54.9144 153.516 67.9689 130.864C89.4225 93.637 121.288 62.6259 155.385 37.0051C173.522 23.3773 195.958 7.66683 219.166 4.09522C226.61 2.9496 209.03 12.512 208.358 12.887C177.9 29.8921 149.04 55.5849 124.742 80.2513C98.3129 107.081 72.1143 142.17 63.6931 179.694C61.7329 188.428 62.6149 197.14 66.5436 205" stroke="#F43F3F" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+
+                <svg class="svg-description right-svg-bottom" width="117" height="114" viewBox="0 0 117 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.8632 12.8475L55.1916 15.7428M39.5666 32.7786C38.7544 34.1854 36.9277 35.4167 35.6116 36.2857M109.657 6.65479C93.7836 35.8072 73.3231 64.0566 47.0841 84.9454C38.8788 91.4776 30.4714 98.0336 20.8708 102.303C16.4955 104.248 11.4777 104.602 7.4082 106.862" stroke="#6877FF" stroke-width="13" stroke-linecap="round"/>
+                </svg>
+
+            </div>
+            <div class="description">
+                
+                <p>This typographic project is inspired by the natural and fluid forms of <span class="word-highlight">handwritten calligraphy</span>, aiming to capture the essence of manual writing. Its main goal is to recreate the inherent randomness of the human writing process, a trait that brings authenticity and warmth.</p>
+                <p>The proposal seeks to break the boundaries between the digital and the tangible, emphasizing how imperfection and unpredictability connect both worlds. Through typography, it highlights randomness as an essential element that restores a human touch to design in an increasingly digitalized environment.</p>
+
+                
+                    
+            </div>
+        </section>
+
+        <!-- BLOQUE: GLIYHS GRID  -->
+
+        <section id="glyphs">
+            <div class="glyph-block">
+                <!-- Glifo ampliado a la derecha -->
+                <div class="highlight-part">
+                    <div class="glyph-highlight glifo-text" id="highlightedGlyph">A</div>
+                </div>
+
+                <!-- Cuadrícula de glifos -->
+                <div class="glyph-grid" id="glyphGrid"></div>
+            </div>
+        </section>
+
+<!-- BLOQUE: IMAGES GRID  -->
+
+
+        <section class="grid" id="uses">
+
+            <div class="image-grid block1">
+                <img src="resources/foto01.png" alt="Imagen 1">
+                <p class="glifo-text polaroid-text1">Photographing a dancer captures the spontaneity of their movements. This typeface reflects that natural flow in every glyph. </p>
+                
+            
+            </div>
+
+            <div class="image-grid block2">
+                <div class="text-grid2 "> 
+                    <p class="glifo-text">Handcrafted typography is an art that combines creativity and manual skill. Handcrafted typography is an art that combines creativity and manual skill. </p>
+                    <svg width="281" height="75" viewBox="0 0 281 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.14648 17.5173C21.869 17.8406 41.4727 17.9687 61.1845 16.9333C86.6508 15.5957 112.05 13.3255 137.52 12.0112C159.832 10.8598 182.158 9.93555 204.455 8.50726C218.175 7.62839 231.986 7.16331 245.64 5.50391C256.695 4.1604 267.796 2 278.955 2M208.877 9.00781C208.877 14.2293 210.909 19.4038 211.38 24.5807C212.801 40.2155 215.555 56.6739 221.919 71.077M209 71.3806C211.173 72.1259 214.783 72.3135 217.028 72.5166C218.926 72.6882 223.006 73.7183 224.643 73.1204C226.635 72.7079 226.323 63.8022 226.678 58.1125" stroke="#585858" stroke-width="3" stroke-linecap="round"/>
+                    </svg>   
+                </div>
+            </div>
+            <div class="resourses-grid2">
+                <svg width="558" height="609" viewBox="0 0 558 609" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M498.99 74.0258C483.651 38.7873 446.167 18.005 410.213 8.63516C353.965 -6.02316 292.425 5.6958 238.197 23.4827C204.607 34.5 172.639 52.6494 144.65 74.1797C125.281 89.0788 109.725 109.032 94.7989 128.185C77.3232 150.609 60.7031 174.948 47.5638 200.191C2.19704 287.35 -13.3152 391.285 19.5612 485.218C48.7049 568.485 135.914 616.681 221.811 605.229C300.586 594.725 380.367 561.832 428.83 496.68C484.009 422.499 510.061 334.835 532.839 246.426C545.824 196.029 555.764 146.801 555.764 94.7969" 
+                    stroke="#D7F46C" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <img src="resources/foto02.png" alt="Imagen 2">
+            </div>
+
+            <div class="resourses-grid3 block3">
+                <p class="glifo-text">Randomness is the beauty of walking down the street and photographing anonymous people, creating spontaneous compositions that together generate something unique and beautiful.</p>
+                <div class="image-grid"><img src="resources/foto03.png" alt="Imagen 3"></div>
+            </div>
+            
+
+            <div class="image-grid block4">
+                <img src="resources/foto04.png" alt="Imagen 4">
+                <p class="glifo-text text-grid4">The randomness of crossing paths with strangers and capturing a unique moment can turn an ordinary day into something special. It's in those unexpected encounters where the magic of everyday life is found.
+
+                </p>
+            </div>
+
+        </section>
+
+
+        <div class="text-animation">
+        <span class="glifo-text">NATURALTIPOGRÁPHY</span>
+        <span class="glifo-text">NATURALTIPOGRÁPHY</span>
+        <span class="glifo-text">NATURALTIPOGRÁPHY</span>
+        <span class="glifo-text">NATURALTIPOGRÁPHY</span>
+        <span class="glifo-text">NATURALTIPOGRÁPHY</span>
+        </div>
+
+    </div>
+
+    <footer>
+        <span>by delramo.design with 🖤</span>
+    </footer>
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/glyph-block.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/noise.js"></script>
+    <script src="js/mouse.js"></script>
+    <script src="js/animation-intro.js"></script>
+    <script src="js/animation-load-content.js"></script>
+
+    <script src="resources/gsap/gsap.min.js"></script>
+    <script src="resources/gsap/CustomEase.min.js"></script>
+    <script src="resources/gsap/SplitText.min.js"></script>
+    <script src="resources/gsap/ScrambleTextPlugin.min.js"></script>
+    <script src="resources/gsap/Draggable.min.js"></script>
+    <script src="resources/gsap/MorphSVGPlugin.min.js"></script>
+
+</body>
+</html>

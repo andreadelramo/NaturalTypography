@@ -1,0 +1,23 @@
+.text-animation {
+    font-family: "Natural";
+    font-size: 200px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.text-animation span {
+    white-space: nowrap;
+    animation: text-animation 100s linear infinite;
+}
+
+@keyframes text-animation {
+	0% {
+	  transform: translateX(100%);
+	}
+	100% {
+	  transform: translateX(-100%);
+	}
+  }

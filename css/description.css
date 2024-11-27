@@ -1,0 +1,124 @@
+/* SECCION 2: DESCRIPTION */
+.description-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 60px;
+    z-index: var(--nivel-1);
+}
+
+#full-width-text {
+    width: 90%; /* Asegura que el texto ocupe el ancho disponible */
+    padding: 5%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    background: var(--background-white);
+    transform: rotate(-20deg);
+    font-size: 1em;
+}
+
+#full-width-text p {
+    width: 100%;
+    margin: 0;
+    font-size: clamp(18px, 9vw, 160px);
+    line-height: 1;
+    color: #333;
+    font-family: "Natural";
+    text-transform: uppercase;
+    
+}
+
+
+.word-highlight {
+    background: var(--background-hilight);
+    padding: 2px 4px;
+}
+
+
+.description {
+    display: block;
+    padding: 32px;
+    line-height: 1.5;
+    overflow-wrap: normal;
+    max-width: 100%;
+}
+
+.description p {
+    width: 100%;
+    font-size: 16px;
+    z-index: var(--nivel-5);
+}
+
+.description-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* SVG */
+.svg-description {
+    position: absolute;
+    z-index: var(--nivel-4);
+    width: clamp(60px, 10vw, 300px);
+}
+
+.left-svg {
+    top: -60%;
+    left: 30%;
+}
+
+.right-svg-top {
+    top: 20%;
+    right: -10%;
+    width: clamp(50px, 14vw, 1000px);
+}
+
+.right-svg-bottom {
+    bottom: -15%;
+    right: 5%;
+}
+
+/* PANTALLAS DE MAS DE 768 */
+
+@media (min-width: 768px) {
+    .description-section {
+        gap: 80px;
+    }
+
+    #full-width-text {
+        max-width: 1800px;
+        transform: rotate(-10deg);
+    }
+
+    .description {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 10% 10% 10% 30%;
+        max-width: 1200px;
+    }
+
+    .description-content {
+        flex-direction: row;
+    }
+
+    .left-svg {
+        top: -120px;
+        left: 0px;
+    }
+
+    .right-svg-top {
+        top: 10%;
+        right: 1%;
+    }
+
+    .right-svg-bottom {
+        bottom: -80px;
+    }
+}

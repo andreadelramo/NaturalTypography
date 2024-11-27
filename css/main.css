@@ -1,0 +1,139 @@
+@font-face {
+    font-family: "Natural";
+    src: url("../resources/Natural-Regular.woff2") format("woff2"),
+         url("../resources/Natural-Regular.woff") format("woff"),
+         url("../resources/Natural-Regular.ttf") format("truetype");
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+*::selection {
+    background: var(--background-hilight);
+}
+
+body {
+    background-color: var(--background-main-light);
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+    
+}
+
+
+
+#noiseCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw; 
+    height: 100vh; 
+    pointer-events: none; 
+    opacity: 0.10; 
+    z-index: 2000;
+    filter: difference;
+}
+
+#drawingCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 3000;
+    background-color: transparent; /* NO QUITAR */
+}
+
+section{
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+/*  -> GLIFOS <- */
+.default-glif {
+    font-family: "Natural";
+    font-feature-settings: "ss01" 0, "ss02" 0; 
+}
+
+.glif-ss01 {
+    font-family: "Natural";
+    font-feature-settings: "ss01" 1, "ss02" 0; 
+}
+
+.glif-ss02 {
+    font-family: "Natural";
+    font-feature-settings: "ss01" 0, "ss02" 1; 
+}
+
+.randomized-word {
+    display: inline-block; 
+    white-space: normal;
+    word-break: break-word; 
+    overflow-wrap: break-word; 
+}
+
+.randomized-char {
+    display: inline; 
+    transition: transform 0.2s ease; 
+}
+
+.glifo-text {
+    white-space: normal; 
+    line-height: 1.5; 
+    overflow-wrap: break-word; 
+}
+
+
+/* FOOTER */
+
+footer{
+    height: 80px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+
+}
+
+
+
+canvas {
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.intro {
+    position: fixed;
+    background-color: var(--red);
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+   
+  }
+  .intro p {
+    font-family: "Natural";
+    font-size: 5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
