@@ -44,11 +44,14 @@ body {
     z-index: 2000;
     filter: difference;
     overflow-x: hidden;
-    border: transparent;
+    visibility: hidden;
+    border: none;
 }
 
 #drawingCanvas {
     display: none; 
+    border: transparent;
+    border: none;
 }
 
 
