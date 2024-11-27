@@ -63,17 +63,9 @@
         z-index: 2;
         font-family: "Natural";
         font-size: 20px;
-        animation: slideText 5s linear infinite;
       }
 
-  @keyframes slideText {
-    0% {
-      startOffset: 0%;
-    }
-    100% {
-      startOffset: 100%;
-    }
-  }
+ 
 
 
   }
@@ -124,6 +116,15 @@
       }
     }
 
+    .resourses-grid2 {
+      overflow: visible;
+  }
+  
+  .resourses-grid2 img,
+  .resourses-grid2 .line-hand,
+  .resourses-grid2 .polaroid-text1 {
+      overflow: visible;
+  }
   
  
   
