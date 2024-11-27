@@ -26,6 +26,7 @@ body {
     padding: 0;
     gap: 40px;
     
+    
 }
 
 
@@ -42,6 +43,7 @@ body {
     opacity: 0.10; 
     z-index: 2000;
     filter: difference;
+    overflow-x: hidden;
 }
 
 #drawingCanvas {
@@ -53,6 +55,7 @@ body {
     pointer-events: none;
     z-index: 3000;
     background-color: transparent; /* NO QUITAR */
+    overflow-x: hidden;
 }
 
 section{
@@ -60,7 +63,6 @@ section{
     justify-content: center;
     align-items: center;
     padding: 12px;
-    overflow: hidden;
 }
 
 /*  -> GLIFOS <- */
