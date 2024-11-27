@@ -26,7 +26,7 @@
     white-space: pre-wrap; 
     word-wrap: break-word;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1;
     color: black;
     font-size: 120px; 
     position: relative; 
@@ -64,7 +64,7 @@
     width: 99%;
     height: 40px;
     font-size: 16px;
-    padding: 0 16px;
+    padding: 2px 16px  0 16px ;
     border: none;
     border-radius: var(--border-radious-default);
     outline: none;

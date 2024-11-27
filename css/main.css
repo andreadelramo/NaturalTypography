@@ -15,6 +15,7 @@ html {
 
 *::selection {
     background: var(--background-hilight);
+    padding: 0;
 }
 
 body {
@@ -46,6 +47,7 @@ body {
     overflow-x: hidden;
     visibility: hidden;
     border: none;
+    visibility: visible;
 }
 
 #drawingCanvas {
