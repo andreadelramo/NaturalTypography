@@ -3,7 +3,7 @@ const drawingCtx = drawingCanvas.getContext('2d');
 let lastX = null;
 let lastY = null;
 const brushSize = 6; 
-const fadeSpeed = 0.26; 
+const fadeSpeed = 0.27; 
 let cursorColor = 'black'; 
 
 
@@ -68,7 +68,7 @@ function drawStaticCursor() {
 // FUNCIÓN PARA DESVANECER EL RASTRO
 function fadeCanvas() {
     drawingCtx.globalCompositeOperation = 'destination-out';
-    drawingCtx.fillStyle = `rgba(0, 0, 0, ${fadeSpeed})`;
+    drawingCtx.fillStyle = `rgba(255, 255, 255, ${fadeSpeed})`; // Aumentamos el alfa para borrar completamente
     drawingCtx.fillRect(0, 0, drawingCanvas.width, drawingCanvas.height);
     drawingCtx.globalCompositeOperation = 'source-over';
     requestAnimationFrame(fadeCanvas);

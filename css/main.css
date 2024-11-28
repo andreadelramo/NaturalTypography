@@ -10,7 +10,6 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    cursor: none;
     overflow-x: hidden;
 }
 
@@ -146,6 +145,9 @@ canvas {
   }
 
   @media (min-width: 768px) {
+    html {
+        cursor: none;
+    }
 
     #drawingCanvas {
         display: block;
