@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const uppercaseButton = document.getElementById("uppercase-button");
     const colorContainer = document.getElementById("color-container");
     let isLowercase = true;
+    let cursorColor = 'black'; 
 
     // Aplica estilo a un carácter individual
     function styleCharacter(char) {
@@ -73,6 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (colorContainer) {
             colorContainer.style.backgroundColor = selectedColor;
+        }
+        cursorColor = selectedColor;
+        if (typeof window.setCursorColor === 'function') {
+            window.setCursorColor(cursorColor);
         }
     }
 
