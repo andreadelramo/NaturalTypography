@@ -97,13 +97,26 @@
     gap: 20px;
 }
 
-.resourses-grid3 .image-grid img{
+.resourses-grid3 .image-grid {
+    display: flex; /* Para permitir alineación interna */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
     text-align: right;
     right: 0;
     width: 60%;
     transform: rotate(27deg);
     margin-left: auto;
     padding: 0 20%;
+
+    svg{
+      width: 35%;
+      position: absolute;
+      padding-top: 40%;
+      padding-left: 30%;
+      margin: auto;
+      height: auto;
+
+    }
 }
 
 /* BLOQUE 04 */
@@ -164,13 +177,13 @@
       }
     }
 
-    .resourses-grid3 .image-grid img{
+    .resourses-grid3 .image-grid{
         text-align: right;
         right: 0;
         width: 120%;
         margin-left: auto;
-        padding-left: 20%;
-        transform: rotate(10deg);
+        padding-left: 60%;
+        transform: rotate(0deg);
     }
   
     .image-grid:nth-child(4) {
