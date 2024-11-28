@@ -1,11 +1,12 @@
 .text-animation {
     font-family: "Natural";
     font-size: 200px;
-
+	max-width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+	
 }
 
 .text-animation span {
