@@ -42,7 +42,7 @@ body {
     width: 100vw; 
     height: 100vh; 
     pointer-events: none; 
-    opacity: 0.10; 
+    opacity: 0.08; 
     z-index: 2000;
     filter: difference;
     overflow-x: hidden;
@@ -107,13 +107,17 @@ footer{
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    gap: 12px;
+    svg{
+        width: 24px;
+        height: auto;
+    }
 
 }
 
 
 
 canvas {
-    border: 1px solid black;
     display: block;
     margin: 0 auto;
 }

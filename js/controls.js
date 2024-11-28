@@ -6,36 +6,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const lowercaseButton = document.getElementById("lowercase-button");
     const uppercaseButton = document.getElementById("uppercase-button");
     const colorContainer = document.getElementById("color-container");
-    let isLowercase = true; 
-    let cursorColor = 'black'; // color incial
+    let isLowercase = true;
 
+    // Aplica estilo a un carácter individual
+    function styleCharacter(char) {
+        const span = document.createElement("span");
+        span.textContent = char;
 
-
-    // ACTUALIZA EL TEXTO RENDERIZADO SIN PERDER ESTILOS
-    function updateStyledText() {
-        let text = userInput.value.trim();
-
-        if (isLowercase) {
-            text = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+        if (/[a-zA-Z]/.test(char)) {
+            const variants = ["default-glif", "glif-ss01", "glif-ss02"];
+            const variantClass = variants[Math.floor(Math.random() * variants.length)];
+            span.classList.add(variantClass);
+        } else {
+            span.classList.add("default-glif");
         }
 
-        if (styledText) {
-            const currentFontSize = styledText.style.fontSize || `${fontSizeSlider.value}px`;
-            const currentColor = styledText.style.color || textColorPicker.value;
-            const currentTransform = styledText.style.textTransform || "none";
+        span.classList.add("randomized-char");
+        return span;
+    }
 
-            styledText.textContent = text;
-            styledText.style.fontSize = currentFontSize;
-            styledText.style.color = currentColor;
-            styledText.style.textTransform = currentTransform;
+    // Actualiza el contenido estilizado del input
+    function updateStyledText() {
+        const inputText = userInput.value;
+        const previousTextLength = styledText.childNodes.length;
 
-            if (window.processText) {
-                window.processText(styledText);
+        if (inputText.length > previousTextLength) {
+            // Procesa solo los nuevos caracteres
+            for (let i = previousTextLength; i < inputText.length; i++) {
+                let char = inputText[i];
+                if (i === 0 && isLowercase) {
+                    char = char.toUpperCase(); // Convierte la primera letra a mayúscula
+                }
+                const styledChar = styleCharacter(char);
+                styledText.appendChild(styledChar);
+            }
+        } else if (inputText.length < previousTextLength) {
+            // Elimina los nodos sobrantes
+            for (let i = previousTextLength - 1; i >= inputText.length; i--) {
+                styledText.removeChild(styledText.childNodes[i]);
+            }
+        } else {
+            // Si la longitud es igual, actualiza los caracteres
+            for (let i = 0; i < inputText.length; i++) {
+                let char = inputText[i];
+                if (i === 0 && isLowercase) {
+                    char = char.toUpperCase();
+                }
+                styledText.childNodes[i].textContent = char;
             }
         }
     }
 
-    // ACTUALIZA EL TAMAÑO DE LA FUENTE
+    // Actualiza el tamaño de la fuente
     function updateFontSize() {
         const fontSize = `${fontSizeSlider.value}px`;
         styledText.style.fontSize = fontSize;
@@ -44,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fontSizeSlider.style.background = `linear-gradient(to right, var(--border-color-active) ${percentage}%, #c5c5c5 ${percentage}%)`;
     }
 
-    // ACTUALIZA EL COLOR DEL TEXTO Y EL CURSOR
+    // Actualiza el color del texto
     function updateTextColor() {
         const selectedColor = textColorPicker.value;
         styledText.style.color = selectedColor;
@@ -52,40 +74,32 @@ document.addEventListener("DOMContentLoaded", () => {
         if (colorContainer) {
             colorContainer.style.backgroundColor = selectedColor;
         }
-
-        cursorColor = selectedColor;
-        if (typeof window.setCursorColor === 'function') {
-            window.setCursorColor(cursorColor);
-        }
     }
 
-    // APLICA TRANSFORMACIÓN A MINÚSCULAS
+    // Configura el texto en minúsculas con la primera letra en mayúscula
     function setLowercase() {
         isLowercase = true;
-        styledText.style.textTransform = "none";
         lowercaseButton.classList.add("active");
         uppercaseButton.classList.remove("active");
         updateStyledText();
     }
 
-    // APLICA TRANSFORMACIÓN A MAYÚSCULAS
+    // Configura el texto en mayúsculas
     function setUppercase() {
         isLowercase = false;
-        styledText.style.textTransform = "uppercase";
         uppercaseButton.classList.add("active");
         lowercaseButton.classList.remove("active");
         updateStyledText();
     }
 
-
-
+    // Escuchadores de eventos
     if (userInput) userInput.addEventListener("input", updateStyledText);
     if (fontSizeSlider) fontSizeSlider.addEventListener("input", updateFontSize);
     if (textColorPicker) textColorPicker.addEventListener("input", updateTextColor);
     if (lowercaseButton) lowercaseButton.addEventListener("click", setLowercase);
     if (uppercaseButton) uppercaseButton.addEventListener("click", setUppercase);
 
-    updateStyledText();
+    // Inicializaciones
     updateFontSize();
     updateTextColor();
     setLowercase();
