@@ -127,6 +127,13 @@
     .glifo-text {
           padding: 12px 32px;
       }
+
+      svg {
+        position: absolute;
+        padding-left: 60%;
+        padding-top: 5%;
+        height: auto;
+      }
     }
 
     .resourses-grid2 {
